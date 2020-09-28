@@ -1,9 +1,17 @@
 {
-    "name": "yoyo/blade",
+    "name": "clickfwd/yoyo-blade",
+    "description": "Yoyo Blade demo app.",
+    "keywords": ["yoyo","framework","reactive","dynamic","blade"],
+    "version": "0.0.1",
+    "license": "MIT",
+    "homepage": "https://github.com/clickfwd/yoyo-blade",
+    "support": {
+        "issues": "https://github.com/clickfwd/yoyo-blade/issues",
+        "source": "https://github.com/clickfwd/yoyo-blade"
+    },
     "authors": [
         {
-            "name": "Alejandro S.",
-            "email": "alejandro@jreviews.com"
+            "name": "ClickFWD"
         }
     ],
     "require": {
@@ -19,8 +27,8 @@
     },    
     "repositories": [
         {
-            "type": "path",
-            "url": "../yoyo"
+            "type": "vcs",
+            "url": "https://github.com/clickfwd/yoyo"
         }
     ]    
 }
