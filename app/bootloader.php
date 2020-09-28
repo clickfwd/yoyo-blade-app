@@ -1,0 +1,73 @@
+<?php
+
+use Clickfwd\Yoyo\Blade\Application;
+use Clickfwd\Yoyo\Blade\YoyoServiceProvider;
+use Clickfwd\Yoyo\ViewProviders\BladeViewProvider;
+use Clickfwd\Yoyo\Yoyo;
+use Illuminate\Contracts\Foundation\Application as ApplicationContract;
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Support\Fluent;
+use Jenssegers\Blade\Blade;
+
+define('APP_PATH', __DIR__);
+
+$app = Application::getInstance();
+
+$app->bind(ApplicationContract::class, Application::class);
+
+// Needed for anonymous components
+$app->alias('view', ViewFactory::class);
+
+$app->extend('config', function (array $config) {
+    return new Fluent($config);
+    // return new Repository($config);
+});
+
+$blade = new Blade(
+    [
+        APP_PATH.'/resources/views',
+        APP_PATH.'/resources/views/yoyo',
+        APP_PATH.'/resources/views/components',
+    ],
+    APP_PATH.'/../cache',
+    $app
+);
+
+$app->bind('view', function () use ($blade) {
+    return $blade;
+});
+
+(new YoyoServiceProvider($app))->boot();
+
+$blade->compiler()->components([
+    'button' => 'button',
+    'counter-alpine-event' => 'counter-alpine-event',
+]);
+
+$yoyo = Yoyo::getInstance();
+
+$yoyo->configure([
+  'url' => 'yoyo',
+  'scriptsPath' => 'app/resources/assets/js/',
+  'namespace' => 'App\\Yoyo\\',
+]);
+
+$yoyo->setViewProvider(new BladeViewProvider($blade));
+
+$yoyo->registerComponents([
+    // If anonymous component name matches template name, no need to register
+
+    // 'dynamic-content' => 'dynamic-content',
+    // 'wishlist-counter' => 'wishlist-counter',
+    // 'wishlist' => 'wishlist',
+    // 'nesting-parent' => 'nesting-parent',
+    // 'polling' => 'polling',
+
+    // If dynamic component classes are autoloaded with the right namespace, no need to register
+
+    // 'counter' => \App\Yoyo\Counter::class,
+    // 'load-more' => \App\Yoyo\LoadMore::class,
+    // 'live-search' => \App\Yoyo\LiveSearch::class,
+    // 'form' => \App\Yoyo\Form::class,
+    // 'pagination' => \App\Yoyo\Pagination::class,
+]);

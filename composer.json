@@ -1,0 +1,26 @@
+{
+    "name": "yoyo/blade",
+    "authors": [
+        {
+            "name": "Alejandro S.",
+            "email": "alejandro@jreviews.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.2",
+        "clickfwd/yoyo": "^0.0.1",
+        "jenssegers/blade": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },    
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../yoyo"
+        }
+    ]    
+}
