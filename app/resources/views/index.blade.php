@@ -22,6 +22,7 @@
             <x-counter-alpine-event />
                     
             @foreach([
+                'upload' => [],
                 'nesting-parent' => [],
                 'wishlist-counter' => [
                     'attributes' => ['id' => 'wishlist-counter']
