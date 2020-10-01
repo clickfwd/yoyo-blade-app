@@ -12,19 +12,13 @@ class LoadMore extends Component
 
     protected $data;
 
-    protected $results = [];
-
     public function mount()
     {
         $this->data = require __DIR__.'/../test-data.php';
-
-        return $this;
     }
 
-    public function results($offset = null)
+    protected function getResultsProperty()
     {
-        $this->offset = $offset ?? $this->offset;
-
         if ($results = array_splice($this->data, $this->offset, $this->limit)) {
             return $results;
         }

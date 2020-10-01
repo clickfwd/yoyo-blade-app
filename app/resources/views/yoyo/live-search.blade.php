@@ -11,10 +11,10 @@
             </div>
     </form>
 
-    @if ($results = $find())
+    @if ($this->results)
         <div>
             <ul class="space-y-3">
-            @foreach($results as $row)
+            @foreach($this->results as $row)
                 <li class="py-2 px-4 border border-gray-300 bg-gray-50 sm:rounded-md">
                     {{ $row['title'] }}
                 </li>

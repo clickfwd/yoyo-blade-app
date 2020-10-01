@@ -14,55 +14,49 @@ class Pagination extends Component
 
     protected $data;
 
-    protected $results = [];
-
     protected $queryString = ['page'];
 
     public function mount()
     {
         $this->data = require __DIR__.'/../test-data.php';
-
-        return $this;
     }
 
-    public function entries()
+    protected function getResultsProperty()
     {
         $results = array_chunk($this->data, $this->limit)[$this->page - 1] ?? [];
 
         return $results;
     }
 
-    public function start()
+    protected function getStartProperty()
     {
         return 1 + (($this->page - 1) * $this->limit);
     }
 
-    public function end()
+    protected function getEndProperty()
     {
         $end = $this->page * $this->limit;
 
-        return $end > $this->total() ? $this->total() : $end;
+        return $end > $this->total ? $this->total : $end;
     }
 
-    public function total()
+    protected function getTotalProperty()
     {
         return count($this->data);
     }
 
-    public function next()
+    protected function getNextProperty()
     {
         return $this->page < $this->pages ? $this->page + 1 : false;
     }
 
-    public function previous()
+    protected function getPreviousProperty()
     {
         return $this->page > 1 ? $this->page - 1 : false;
     }
 
-    public function render()
+    public function beforeRender()
     {
         $this->pages = $pages = count(array_chunk($this->data, $this->limit));
-
-        return $this->view('pagination', compact('pages'));
     }
 }

@@ -1,17 +1,15 @@
-@php
-$rows = $results($offset, $limit); 
-@endphp
 <div class="space-y-3" yoyo:swap="innerHTML">
 
-    @foreach($rows as $row)
+    @foreach($this->results as $row)
         <div class="my-3 flex flex-row items-center space-x-3 py-2 px-4 border border-gray-300 bg-gray-50 sm:rounded-md">
             {{ $row['title'] }}
         </div>
     @endforeach
         
-    @if ($rows)
+    @if ($this->results)
         <div class="inline-flex rounded-md shadow-sm">
             <button
+                id="load-more"
                 yoyo:vars="offset: {{ $offset + $limit }}" 
                 yoyo:target="closest div"
                 yoyo:swap="outerHTML"
