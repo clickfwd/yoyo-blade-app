@@ -11,7 +11,7 @@
       
     </head>
         
-    <body class="bg-gray-100 p-12">
+    <body class="bg-gray-100 p-6 sm:p-12 max-w-3xl mx-auto">
         
         <h1 class="text-5xl font-bold text-gray-500 my-6 tracking-wider">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">yoyo</span> <span class="text-gray-300 mx-2">|</span> <span class="text-gray-800">blade</span> app
