@@ -1,12 +1,12 @@
 <?php
-require 'vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Clickfwd\Yoyo\Yoyo;
 
-require __DIR__.'/app/bootloader.php';
+require __DIR__.'/../app/bootloader.php';
 
 $app = AppFactory::create();
 
