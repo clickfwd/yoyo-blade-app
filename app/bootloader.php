@@ -41,16 +41,17 @@ $app->bind('view', function () use ($blade) {
 
 $blade->compiler()->components([
     'button' => 'button',
+    'component-wrapper' => 'component-wrapper',
     'counter-alpine-event' => 'counter-alpine-event',
 ]);
 
 $yoyo = Yoyo::getInstance();
 
 $yoyo->configure([
-  'url' => 'yoyo',
-  'scriptsPath' => 'app/resources/assets/js/',
-  'namespace' => 'App\\Yoyo\\',
-]);
+    'url' => 'yoyo',
+    'scriptsPath' => 'assets/js/',
+    'namespace' => 'App\\Yoyo\\',
+  ]);
 
 $yoyo->setViewProvider(new BladeViewProvider($blade));
 

@@ -10,19 +10,17 @@ class Counter extends Component
 
     protected $queryString = ['count'];
 
-    protected $_template = 'counter';
-
     public function increment()
     {
         $this->count++;
 
-        $this->emit('counter:updated', ['count' => $this->count]);
+        $this->dispatchBrowserEvent('counter:updated', $this->count);
     }
 
     public function decrement()
     {
         $this->count--;
 
-        $this->emit('counter:updated', ['count' => $this->count]);
+        $this->dispatchBrowserEvent('counter:updated', $this->count);
     }
 }
