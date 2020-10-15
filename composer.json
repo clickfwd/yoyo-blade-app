@@ -2,7 +2,7 @@
     "name": "clickfwd/yoyo-blade",
     "description": "Yoyo Blade demo app.",
     "keywords": ["yoyo","framework","reactive","dynamic","blade"],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "homepage": "https://github.com/clickfwd/yoyo-blade",
     "support": {
