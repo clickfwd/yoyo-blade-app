@@ -10,7 +10,7 @@
 }" x-on:todo-edit.window="focus()" 
 >
     <header class="flex flex-row items-center">
-        <div class="block w-full sm:text-sm sm:leading-5 flex flex-row items-center space-x-2">
+        <div class="w-full sm:text-sm sm:leading-5 flex flex-row items-center space-x-2">
             @if ($this->entries)
             <a role="button" href="#" yoyo:get="toggleAll">
                 <svg class="{{ $this->count == $this->count_completed ? 'text-gray-700' : 'text-gray-300' }} w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

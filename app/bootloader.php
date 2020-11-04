@@ -45,7 +45,7 @@ $blade->compiler()->components([
     'counter-alpine-event' => 'counter-alpine-event',
 ]);
 
-$yoyo = Yoyo::getInstance();
+$yoyo = new Yoyo();
 
 $yoyo->configure([
     'url' => 'yoyo',
@@ -53,7 +53,9 @@ $yoyo->configure([
     'namespace' => 'App\\Yoyo\\',
   ]);
 
-$yoyo->setViewProvider(new BladeViewProvider($blade));
+$yoyo->registerViewProvider(function() use ($blade) {
+    return new BladeViewProvider($blade);
+});
 
 $yoyo->registerComponents([
     // If anonymous component name matches template name, no need to register
