@@ -99,6 +99,8 @@
                 ] as $yoyo_component)
 
                 @php 
+                // Reset previous attribute values
+                $attributes = [];
                 extract($yoyo_component);
                 @endphp
 
