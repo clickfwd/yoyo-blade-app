@@ -4,7 +4,7 @@ $keys = array_rand($entries, 3);
 $entries = array_intersect_key($entries, array_flip($keys));
 @endphp
 
-@emitTo('#wishlist-counter','reset-likes')
+@emitToWithSelector('#wishlist-counter','reset-likes')
 
 <div>
 

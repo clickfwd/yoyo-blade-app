@@ -45,7 +45,7 @@ $blade->compiler()->components([
     'counter-alpine-event' => 'counter-alpine-event',
 ]);
 
-$yoyo = new Yoyo();
+$yoyo = new Yoyo($app);
 
 $yoyo->configure([
     'url' => 'yoyo',
