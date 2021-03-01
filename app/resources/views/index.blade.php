@@ -47,7 +47,7 @@
                     </defs>
                     <rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"></rect>
                 </svg>
-                                
+
                 <x-component-wrapper heading="Counter">
 
                     <x-counter-alpine-event />
